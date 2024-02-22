@@ -1,0 +1,15 @@
+.layout_container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F2EFFF;
+}
+.main_container{
+    background-color: #fcfdfe;
+    padding: 4%;
+    width: 75%;
+    min-height: 30%;
+    box-sizing: border-box;
+    margin: 50px 40px 0 40px;
+    border-radius: 20px;
+}

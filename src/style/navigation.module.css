@@ -1,0 +1,10 @@
+.nav_container{
+    width: 25%;
+    min-height: 100vh;
+    background-color: #7edaf266;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
