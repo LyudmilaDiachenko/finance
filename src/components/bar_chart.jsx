@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "../style/bar_chart.module.css"
+import s from "../style/line_chart.module.css"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,34 +25,28 @@ export default function BarChart(props) {
     labels: props.data.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.caption),
     datasets: [
       { 
-        label: "balance", 
         data: props.data.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.value),
         borderColor: "black", 
-        borderRadius: "20", 
+        borderRadius: "10", 
         hoverBackgroundColor: "#5932EA",
         backgroundColor: props.data.map(e=>`rgb(
           ${Math.random() * 200 + 55}, 
           ${Math.random() * 200 + 55}, 
           ${Math.random() * 200 + 55}
-        )`),
+        )`)
       }
     ]
   }
   const options = {
-    responsive: true,
-    scales: {
-      x: {beginAtZero: true, grid: {display: false}},
-      y: {beginAtZero: true, grid: {display: false}, display: false}
-    },
-    barThickness: "30"
+    scales: {x: {display: false}},
+    plugins: {
+      legend: {display: false}
+    }
   }
-
 
   return (
     <div className={s.barChart}>
-      <Bar data={data} options={options}>
-
-      </Bar>
+      <Bar data={data} options={options}></Bar>
     </div>
   )
 }

@@ -1,17 +1,13 @@
 .header_container{
     display: flex;
     align-items: center;
+    margin-bottom: 15%;
 }
 .header_container p{
-    font-size: 20px;
-    margin-left: 20px;
+    font-size: 1.6em;
+    margin-left: 7%;
     font-weight: 600;
 }
 .header_container img{
-    margin-left: 15px;
-}
-.logo_img{
-    width: 200px;
-    display: block;
-    margin: 0 auto;
+    margin-left: 5%;
 }

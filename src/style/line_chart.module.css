@@ -1,8 +1,8 @@
-.barChart {
+.lineChart {
   height: 22vw;
   background-color: #F2EFFF;
   padding: 2%;
   border-radius: 20px;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.227);
-  width: 75%;
+  width: 100%;
 }

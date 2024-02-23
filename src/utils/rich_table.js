@@ -1,13 +1,6 @@
 import React from 'react'
 import style from "../style/rich_table.module.css"
 
-// const data = {
-//   caption: '',
-//   data: [
-//       {caption: "", tizer: "", img: "", link: "", money: "", date: ""}
-//     ]
-//   }
-
 export default function RichTable({caption, data}) {
   const formatter = new Intl.NumberFormat(
     'uk-UA', 
@@ -15,7 +8,7 @@ export default function RichTable({caption, data}) {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     }
-    );
+  );
   return (
     <div className={style.rich_table_container}>
        <table>

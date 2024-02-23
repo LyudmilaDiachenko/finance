@@ -1,27 +1,41 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { AppProvider } from './utils/context';
+import { useState } from 'react';
 import Layout from './pages/layout';
 import Balance from './pages/balance';
-import { useState } from 'react';
+import Income from './pages/income';
+import Expence from './pages/expence';
 
 function App() {
-  const [dateFrom, setDateFrom] = useState(new Date(new Date()-30*24*60*60*1000).toISOString().substr(0,10));
-  const [dateTill, setDateTill] = useState(new Date().toISOString().substr(0,10));
+  const [dateFrom, setDateFrom] = useState('2023-06-01');
+  const [dateTill, setDateTill] = useState('2024-01-01');
 
   return (
     <AppProvider>
       <div className="App">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="finance" element={<Balance 
-            dateFrom={dateFrom}
-            dateTill={dateTill}
-            setDateFrom={e=>setDateFrom(e.target.value)}
-            setDateTill={e=>setDateTill(e.target.value)}
-          />} />
-        </Route>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="balance" element={<Balance 
+              dateFrom={dateFrom}
+              dateTill={dateTill}
+              setDateFrom={e=>setDateFrom(e.target.value)}
+              setDateTill={e=>setDateTill(e.target.value)}
+            />} />
+            <Route path='income' element={<Income 
+              dateFrom={dateFrom}
+              dateTill={dateTill}
+              setDateFrom={e=>setDateFrom(e.target.value)}
+              setDateTill={e=>setDateTill(e.target.value)}
+            />} />
+            <Route path='expence' element={<Expence 
+                dateFrom={dateFrom}
+                dateTill={dateTill}
+                setDateFrom={e=>setDateFrom(e.target.value)}
+                setDateTill={e=>setDateTill(e.target.value)}
+              />} />
+          </Route>
+        </Routes>
       </div>
     </AppProvider>    
   );

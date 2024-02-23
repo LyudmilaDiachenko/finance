@@ -39,7 +39,7 @@ export default function PolarChart(props) {
       }
   return (
     <div className='polar_chart'>
-        <Pie data={data} options={options}/>
+      <Pie data={data} options={options}/>
     </div>
   )
 }
