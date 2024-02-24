@@ -9,9 +9,6 @@ export default function Search(
 {
     return (
         <div className="date_container">
-            <h2 className="date_container_title">
-                Доходи та витрати банків
-            </h2>
             <div className="input_container">
                 <label>
                     з:

@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "../style/line_chart.module.css"
+import s from "../style/bar_chart.module.css"
 import {
   Chart as ChartJS,
   CategoryScale,

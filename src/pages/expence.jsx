@@ -55,6 +55,9 @@ export default function Balance(props) {
 
   return (
     <div>
+        <h1 className="date_container_title">
+          Витрати банків
+        </h1>
       <Search       
         data={data || []}
         dateFrom={props.dateFrom}

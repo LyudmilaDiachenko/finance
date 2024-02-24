@@ -45,9 +45,6 @@ export default function Balance(props) {
       })))
     }, [lastDateFrom, lastDateTill])
 
-    
-
-
     if (lastDateFrom !== props.dateFrom){
       setLastDateFrom(props.dateFrom)
     }
@@ -58,6 +55,9 @@ export default function Balance(props) {
 
   return (
     <div>
+      <h1 className="date_container_title">
+        Доходи та витрати банків
+      </h1>
       <Search       
         data={data || []}
         dateFrom={props.dateFrom}

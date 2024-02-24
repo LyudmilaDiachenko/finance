@@ -12,6 +12,9 @@
   height: 30px;
   margin-right: 20px;
 }
+.date_container{
+  margin-bottom: 3%;
+}
 .date_container_title{
   text-align: center;
   font-size: 1.8em;
@@ -35,4 +38,5 @@
 }
 .chart_container{
   display: flex;
+  margin-bottom: 3%;
 }
