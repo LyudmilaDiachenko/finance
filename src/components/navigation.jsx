@@ -17,6 +17,9 @@ export default function Navigation() {
           </div>
           <div className={s.link_container}>
             <NavLink to="/expence" className={s.link_style}>Витрати банків</NavLink>
+          </div> 
+          <div className={s.link_container}>
+            <NavLink to="/exchange" className={s.link_style}>Курс валют</NavLink>
           </div>
         </div>
         <Footer />
