@@ -1,11 +1,12 @@
 import { Space, DatePicker } from 'antd';
 import { AppContext } from '../utils/context';
 import { useContext } from 'react'
+import dayjs from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
 export default function Calendar() {
-  let {setDateFrom, setDateTill} = useContext(AppContext)
+  let {dateFrom, dateTill, setDateFrom, setDateTill} = useContext(AppContext)
   
   function handleGetDate(e) {
     let partDate = (datePart) => String(datePart).padStart(2, "0")
@@ -17,6 +18,7 @@ export default function Calendar() {
     <div>
       <Space direction="vertical" size={12} style={{marginBottom: "1%"}}>
         <RangePicker
+          defaultValue={[dayjs(dateFrom, 'YYYY/MM/DD'), dayjs(dateTill, 'YYYY/MM/DD')]}
           id={{
             start: 'startInput',
             end: 'endInput',

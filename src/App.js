@@ -11,9 +11,12 @@ import Exchange from './pages/exchange';
 function App() {
   const [dateFrom, setDateFrom] = useState('2023-06-01');
   const [dateTill, setDateTill] = useState('2024-01-01');
+  const [data, setData] = useState([]);
 
   return (
     <AppProvider 
+      data={data}
+      setData={setData}
       dateFrom={dateFrom}
       dateTill={dateTill}
       setDateFrom={e=>setDateFrom(e?.target ? e.target.value : e)}
