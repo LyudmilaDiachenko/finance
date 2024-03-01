@@ -1,4 +1,5 @@
-import React from 'react'
+import { AppContext } from '../utils/context';
+import { useContext } from 'react'
 import s from "../style/bar_chart.module.css"
 import {
   Chart as ChartJS,
@@ -21,15 +22,17 @@ ChartJS.register(
 )
 
 export default function BarChart(props) {
+  let contextData = useContext(AppContext).data
+  let rawData = props.data || contextData || []
   const data = {
-    labels: props.data.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.caption),
+    labels: rawData.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.caption),
     datasets: [
       { 
-        data: props.data.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.value),
+        data: rawData.sort((a,b)=>a.value > b.value ? -1 : 1).map(e=>e.value),
         borderColor: "black", 
         borderRadius: "10", 
         hoverBackgroundColor: "#5932EA",
-        backgroundColor: props.data.map(e=>`rgb(
+        backgroundColor: rawData.map(e=>`rgb(
           ${Math.random() * 200 + 55}, 
           ${Math.random() * 200 + 55}, 
           ${Math.random() * 200 + 55}
