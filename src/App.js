@@ -9,7 +9,7 @@ import Expence from './pages/expence';
 import Exchange from './pages/exchange';
 
 function App() {
-  const [dateFrom, setDateFrom] = useState('2023-06-01');
+  const [dateFrom, setDateFrom] = useState('2021-06-01');
   const [dateTill, setDateTill] = useState('2024-01-01');
   const [data, setData] = useState([]);
 
