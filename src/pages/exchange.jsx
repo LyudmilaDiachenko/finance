@@ -16,19 +16,21 @@ const Exchange = (props) => {
   }  
   const {BASE_URL, EX_DEBET_PATH} = fetch_config
   useEffect(_ => {
-    getData(`${BASE_URL}${EX_DEBET_PATH}&start=${format_date(props.dateFrom) || '20230101'}&end=${format_date(props.dateTill) || '20240101'}`)
+    getData(`${BASE_URL}${EX_DEBET_PATH}&start=${format_date(props.dateFrom) || '20210101'}&end=${format_date(props.dateTill) || '20240101'}`)
     .then(data => {
-      let groupedData = groupBy(data?.filter(e=>e.value>0), 'txt', 'value')
-      setData(Object.keys(groupedData).map(txt => {
-        let item = groupedData[txt] 
+      let groupedData = 
+        Object.values(groupBy(data?.filter(e=>e.value>0), ['txt', 'dt'], 'value', [a=>a, a=>a.substr(0,4)]))
+        .reduce((acc, a)=>acc.concat(a), [])
+
+      setData(groupedData.map(item => {
         return {
-          key: txt, 
+          key: item.txt, 
           value: item.value, 
-          date: new Date(item.dt.replace(/(.*)(.{2})(.{2})$/, '$1-$2-$3')),
-          caption: txt,
-          id: item.id_api
+          date: item.dt.substr(0,4),
+          caption: item.txt,
+          id: item.txt
         }
-      }))
+      }).sort(a=>a.date))
     })
   }, [dateFrom, dateTill])
   return (
