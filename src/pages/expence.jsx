@@ -21,7 +21,7 @@ export default function Balance(props) {
   
   useEffect(_ => {
       getData(`https://bank.gov.ua/NBUStatService/v1/statdirectory/banksincexp?json&freq=M&start=${format_date(props.dateFrom) || '20230101'}&end=${format_date(props.dateTill) || '20240101'}`)
-      .then(data => setData(data.filter(e=>e.id_api.search(/_Exp/) !== -1).map(item => {
+      .then(data => setData(data?.filter(e=>e.id_api.search(/_Exp/) !== -1).map(item => {
         return {
           key: item.id_api+item.dt, 
           value: item.value, 

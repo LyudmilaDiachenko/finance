@@ -7,9 +7,10 @@ export default function Layout() {
   return (
     <div className={s.layout_container} >
       <Navigation />
-        <div className={s.main_container}>
-          <Outlet />
-        </div>
+      <div style={{width: "25%"}}></div>
+      <div className={s.main_container}>
+        <Outlet />
+      </div>
     </div>
   )
 }
